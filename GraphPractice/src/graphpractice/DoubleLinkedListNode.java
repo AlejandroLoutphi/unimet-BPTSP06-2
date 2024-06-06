@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package linkedlists;
+package graphpractice;
 
 /**
  *
@@ -11,6 +11,7 @@ package linkedlists;
 public class DoubleLinkedListNode<E> extends LinkedListNode<E> {
 
     protected DoubleLinkedListNode<E> prev;
+    protected DoubleLinkedListNode<E> next;
 
     public DoubleLinkedListNode(
             E elt,
@@ -44,7 +45,7 @@ public class DoubleLinkedListNode<E> extends LinkedListNode<E> {
     }
 
     public DoubleLinkedListNode<E> getNext() {
-        return (DoubleLinkedListNode<E>) next;
+        return next;
     }
 
     public void setNext(DoubleLinkedListNode<E> next) {
@@ -68,7 +69,7 @@ public class DoubleLinkedListNode<E> extends LinkedListNode<E> {
             return this.next.add(n - 1, elt);
         }
 
-        this.next = new DoubleLinkedListNode<E>(elt, this, (DoubleLinkedListNode<E>) this.next);
+        this.next = new DoubleLinkedListNode<E>(elt, this, this.next);
         this.getNext().getNext().setPrev(this.getNext());
         return true;
     }
@@ -88,3 +89,5 @@ public class DoubleLinkedListNode<E> extends LinkedListNode<E> {
     }
 
 }
+
+
